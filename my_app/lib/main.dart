@@ -23,7 +23,7 @@ class login extends StatelessWidget {
         '/home' :(context)=> homepage(),
         '/create' :(context)=> Create(),
       },
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
     );
   }
 }
