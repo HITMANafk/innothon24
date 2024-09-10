@@ -1,148 +1,122 @@
-
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class homepage extends StatefulWidget {
-  const homepage({super.key});
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
 
   @override
-  State<homepage> createState() => _homepageState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _homepageState extends State<homepage> {
-
-
-  
- @override
+class _HomepageState extends State<Homepage> {
+  @override
   Widget build(BuildContext context) {
-    
-    
-    return  Scaffold(
-      body: Align(
-        alignment: Alignment.center,
-        child: Column(
+    return Scaffold(
+      resizeToAvoidBottomInset:
+          true, // Ensure layout adjusts when the keyboard appears
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment:
+                CrossAxisAlignment.stretch, // Stretch to take available width
+            children: [
+              const Text(
+                'Sign In',
+                textAlign: TextAlign.center, // Center align the text
+                style: TextStyle(fontSize: 40),
+              ),
+              const SizedBox(height: 30), // Spacing between elements
 
-          children: [
-
-            const Text('Sign In',
-            style: TextStyle(
-              fontSize: 40
-            ),
-            ),
-
-            const SizedBox(
-              height: 100,
-            ),
-            
-            const SizedBox(
-              width: 350,
-              child: Material(
-                elevation: 18,
+              // Username Input
+              Material(
+                elevation: 10,
                 shadowColor: Colors.black,
-                borderRadius: BorderRadius.all(Radius.circular(40)) ,
-                child: TextField(
+                borderRadius: BorderRadius.circular(30),
+                child: const TextField(
                   decoration: InputDecoration(
-                    
-                    hintText:'username',
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    hintText: 'Username',
                     border: OutlineInputBorder(
-                       borderRadius: BorderRadius.all(Radius.circular(40))
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(height: 20),
 
-            const SizedBox(
-              width: 350,
-              child: Material(
-                elevation: 18,
+              Material(
+                elevation: 10,
                 shadowColor: Colors.black,
-                borderRadius: BorderRadius.all(Radius.circular(40)) ,
-                child: TextField(
+                borderRadius: BorderRadius.circular(30),
+                child: const TextField(
+                  obscureText: true,
                   decoration: InputDecoration(
-                    
-                    hintText:'password',
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    hintText: 'Password',
                     border: OutlineInputBorder(
-                      
-                      borderRadius: BorderRadius.all(Radius.circular(40))
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(onPressed: (){}, 
-              style: TextButton.styleFrom(
-              foregroundColor: Colors.blue,
-              
-            ),
-            child: Text('forgot your password?',
-            
-            )
-            ),
-            ),
+              const SizedBox(height: 10),
 
-            SizedBox(
-              height: 50,
-            ),
-
-            ElevatedButton(onPressed: (){
-
-            },
-
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                foregroundColor: Colors.white,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(50))
+              // Forgot Password Button
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Forgot your password?',
+                    style: TextStyle(color: Colors.blue),
+                  ),
                 ),
-             ), 
-            
-            child: Icon(
-              Icons.arrow_forward_outlined,
-              color: Colors.white,
-              )
               ),
+              const SizedBox(height: 30),
 
-              SizedBox(
-                height: 100,
+              // Sign In Button
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: const Text(
+                  'Sign In',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
+              const SizedBox(height: 20),
 
-            Row(
-              children: [
-                Text("don't have an account?",),
-                TextButton(onPressed: (){
-                  Navigator.of(context).pushNamed('/create');
-                },
-                style: TextButton.styleFrom(
-              foregroundColor: Colors.blue,
+              // Create Account Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Don't have an account?"),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/create');
+                    },
+                    child: const Text(
+                      'Create',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-                 child: const Text('create',
-                 style: TextStyle(
-                  decoration: TextDecoration.underline,
-                 ),)
-                 )
-              ],
-            )
-
-
-
-          ]
-
-
+            ],
+          ),
         ),
-      )
-      
+      ),
     );
-   
   }
 }
-
-
